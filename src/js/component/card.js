@@ -1,19 +1,14 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-export function Card() {
+export function Card(props) {
 	return (
 		<div className="col-sm-12 col-md-3">
 			<div className="card m-1">
-				<img
-					src="https://picsum.photos/500/325"
-					className="card-img-top"
-					alt="..."></img>
+				<img src={props.img} className="card-img-top" alt="..."></img>
 				<div className="card-body text-center">
-					<h5 className="card-title">Card title</h5>
-					<p className="card-text">
-						{`Some quick example text to build on the card title and
-						make up the bulk of the card's content.`}
-					</p>
+					<h5 className="card-title">{props.titulo}</h5>
+					<p className="card-text">{props.descripcion}</p>
 				</div>
 				<div className="card-footer text-center">
 					<a href="#" className="btn btn-primary">
@@ -24,3 +19,9 @@ export function Card() {
 		</div>
 	);
 }
+
+Card.propTypes = {
+	titulo: PropTypes.string,
+	descripcion: PropTypes.string,
+	img: PropTypes.string
+};
